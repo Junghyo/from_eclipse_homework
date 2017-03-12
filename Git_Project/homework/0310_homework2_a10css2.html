@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function call(){
+		var textValue = document.getElementById("b").value;
+		var h1Value = document.getElementById("c");
+		h1Value.innerHTML=textValue;
+		var colorValue = document.getElementById("a").value;
+		alert("선택한 글자배경색: "+colorValue);
+		if(colorValue=="빨강"){
+			h1Value.style.backgroundColor="red";
+			h1Value.style.color="white";
+		}else if(colorValue=="주황"){
+			h1Value.style.backgroundColor="orange";
+			h1Value.style.color="black";
+		}else if(colorValue=="노랑"){
+			h1Value.style.backgroundColor="yellow";
+			h1Value.style.color="blue";
+		}else if(colorValue=="초록"){
+			h1Value.style.backgroundColor="green";
+			h1Value.style.color="pink";
+		}else if(colorValue=="파랑"){
+			h1Value.style.backgroundColor="blue";
+			h1Value.style.color="yellow";
+		}else if(colorValue=="남색"){
+			h1Value.style.backgroundColor="navy";
+			h1Value.style.color="orange";
+		}else if(colorValue=="보라"){
+			h1Value.style.backgroundColor="purple";
+			h1Value.style.color="red";
+		}
+	}
+</script>
+<style type="text/css">
+	
+</style>
+</head>
+<body>
+<!-- 
+ 과제(homework)
+ 색상과 글자색입히기
+ 
+ 글자색 선택[select option] - 빨,주,노,초,파,남,보
+ 입력할 내용:[     ]
+ [확인]
+ @@@@@@ : 확인을 클릭시, 해당 배경색에 입력할 내용에 입력한 글자 내용 표시
+-->
+<form>
+글자색 선택: <select id="a">
+	<option>빨강</option>
+	<option>주황</option>
+	<option>노랑</option>
+	<option>초록</option>
+	<option>파랑</option>
+	<option>남색</option>
+	<option>보라</option>
+</select><br>
+<input id="b" type="text"><br>
+<input type="button" value="확인" onclick="javascript:call()">
+<h1 id="c"></h1>
+</form>
+</body>
+</html>

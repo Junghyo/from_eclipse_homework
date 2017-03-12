@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	#a{background-color:yellow; color:blue;}
+	.b{background:pink;}
+	#c{background:yellow; text-align:right;}
+	#d{background:yellow;}
+</style>
+
+</head>
+<body>
+<!--
+ 과제(homework)
+ 	어서오세요.
+  	즐거운 쇼핑되시길..
+ 판매물품현황
+ Ch  물건명		가격		 갯수
+ []  [사과]		[3000]	  []
+ []  [바나나]	[5000]	  []
+ []  [딸기]		[8000]	  []
+ 			[구매]
+ -- 화면 처리 사항(기본 글자색상 검정)
+ 1. title 부분은 배경색상 노랑, txet색상 파랑
+ 2. 물건명에 해당하는 배경색상 pink
+ 3. 갯수부분 입력하는 배경색상 노랑색 글자정렬 오른쪽(text-align활용)
+ 4. [] checkbox 			
+ -->
+ 
+ <form>
+ 	<table align="center" border hieght="500" width="500">
+ 		<caption>
+ 		<b>어서오세요.</b><br>
+ 		<b>즐거운 쇼핑되시길...</b>
+ 		</caption>
+ 		<tr>
+ 		<th colspan="4" id="a">판매 물품 현황</th>
+ 		</tr>
+ 		<tr>
+ 		<th>체크</th><th class="b">물건명</th><th>가격</th><th width="100" id="d">갯수</th>
+ 		</tr>
+ 		<tr>
+ 		<th><input type="checkbox" name="fruit"/></th><th class="b">사과</th><th>3000</th><th><input id="c" type="number" name="appleCnt"/></th>
+ 		</tr>
+ 		<tr>
+ 		<th><input type="checkbox" name="fruit"></th><th class="b">바나나</th><th>5000</th><th><input id="c" type="number" name="bananaCnt"/></th>
+ 		</tr>
+ 		<tr>
+ 		<th><input type="checkbox" name="fruit"></th><th class="b">딸기</th><th>8000</th><th><input id="c" type="number" name="berryCnt"/></th>
+ 		</tr>
+ 	</table>
+ </form>
+ 
+</body>
+</html>

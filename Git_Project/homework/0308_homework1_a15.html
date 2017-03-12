@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	h1{background-color:red; color:white;}
+</style>
+<script type="text/javascript">
+	function comp(){
+		var inputPass1=document.form01.inPass1.value;
+		var inputPass2=document.form01.inPass2.value;
+		if(inputPass1==inputPass2){
+			alert("일치합니다");
+		}else{
+			alert("불일치! 다시 한번 확인하세요");
+		}
+	}
+</script>
+</head>
+<body>
+<!-- 
+과제(homework)
+쇼핑몰이나, 게임사이트 등에서 회원가입란을 확인하시고, 지금 배운 form객체 하위내용을  table과 함께 정렬을 효과적으로 해서
+회원가입처리화면을 구성하세요.
+ --> 
+ <h1 align="center"><b>회원가입</b></h1>
+ <ol>
+ <form name="form01">
+ 	<li>신상정보</li>
+ 		<ul>
+ 			<li>이름 : <input type="text" name="inName"/></li>
+      		<li>생년월일 : <input type="date" name="inBirth"></li>
+      		<li>성별 : 남자 <input type="radio" name="inGender" value="man">  여자 <input type="radio" name="inGender" value="woman"></li>
+      		<li>사는 곳   : 도시 
+      			  <select name="location">
+      			  		<option value="loc1">서울/경기</option>
+      			  		<option value="loc2">강원</option>
+      			  		<option value="loc3">충청도</option>
+      			  		<option value="loc4">전라도</option>
+      			  		<option value="loc5">경상도</option>
+      			  		<option value="loc6">제주도</option>
+      			  </select> 상세주소 <input type="text" name="locDetail"/></li>
+      		<li>희망 ID : <input type="text" name="inId"/></li>
+      		<li>password : <input type="password" name="inPass1"/></li>
+      		<li>password 재입력 : <input type="password" name="inPass2"/>
+      		<input type="button" value="일치 여부" onclick="javascript:comp()"/></li>
+      		<li>핸드폰번호 : 
+      				<select name="phone">
+      					<option value="phone1">SKT</option>
+      					<option value="phone2">KT</option>
+      					<option value="phone3">U+</option>
+      				</select>      				
+      				<select name="phoneNum">
+      					<option value="phoneNum1">010</option>
+      					<option value="phoneNum2">011</option>
+      					<option value="phoneNum3">019</option>
+      				</select><input type="text" name="phoneNum2"/></li>				  	   
+      	</ul>			
+ 	<br><br><br>
+ 	<li>약관동의</li>
+ 		(필수)옥션 이용약관 <input type="checkbox" name="Inagree" value="agree1"/><br>
+ 		(필수)전자금융거래 이용약관전체보기 <input type="checkbox" name="Inagree" value="agree1"/><br>
+ 		(필수)개인정보 수집 및 이용내용보기 <input type="checkbox" name="Inagree" value="agree1"/><br>
+ 		(필수)전자금융거래 이용약관전체보기 <input type="checkbox" name="Inagree" value="agree1"/><br>
+ 		(선택)개인정보 제3자(판매자) 제공내용보기 <input type="checkbox" name="Inagree" value="agree1"/><br>
+ 		(선택)개인정보 수집 및 이용내용보기 <input type="checkbox" name="Inagree" value="agree1"/><br>
+ 		<br><br>
+ 		위에 입력된 사항을 사실대로 입력하고 약관을 숙지했으면 회원가입 버튼을 클릭하세요
+ 		<input type="button" name="confirm" value="회원가입" onclick="javascript:alert('감사합니다!')"/><br>
+ 		입력한 내용 모두 지우고 싶다면 '입력초기화'를 클릭하세요<input type="reset" value="입력초기화"/>
+ </form>			
+ </ol>
+
+ 
+ 
+</body>
+</html>

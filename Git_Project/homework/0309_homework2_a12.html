@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function login(){
+		var inIdValue = document.form01.inId.value;
+		var inPassValue = document.form01.inPass.value;
+		if(inIdValue=="ID를 입력하세요"){
+			document.form01.inId.value="";
+		}else if(inIdValue=="himan" && inPassValue==7777){
+			alert("로그인 성공!! 1단계를 진행해주세요.");
+			document.form01.status.value="로그인 성공";
+			document.form01.mainTopic.disabled=false;
+		}else{
+			alert("로그인 실패!!! ID와 Password를 다시 한번 확인하세요.");
+		}			
+	}
+	
+	function topic01(){
+		if(document.form01.mainTopic.value==""){
+			alert("주제를 입력해주세요!");
+		}else{
+			alert("1단계 완료. 2단계도 진행해주세요");
+			document.form01.status.value="1단계 완료";
+			document.form01.subTopic.disabled=false;
+		}
+	}
+	
+	function topic02(){
+		if(document.form01.subTopic.value==""){
+			alert("세부주제를 입력하세요");
+		}else{
+			alert("2단계 완료. 모두 입력되었습니다!");
+			document.form01.status.value="2단계 완료";
+		}
+	}
+</script>
+<style type="text/css">
+	.a:disabled{background-color:pink;}
+	.b:disabled{background-color:green;}
+	.c input:focus{background:yellow; color:blue;}
+</style>
+</head>
+<body>
+<!--
+ 확인예제 및 과제(homework)
+ 아래와 같은 로그인 화면을 만들고 
+ 	로그인   -- 입력시, focus하는 곳에서 배경색, 글자색 변경처리
+ I  D: [    ]
+ PASS: [	]
+  
+  
+  	[로그인]  -- id와 password가 지정된 내용에 맞을 때, 다음 단계 활성화  future/7777
+  status:[	]  -- 상태여부(로그인전/로그인성공/1단계/2단계)	
+ 1단계.주제를 입력하세요: [   ]			-- 초기 비활성화		 ==> 활성화  document.form이름.element이름.disabled=false;	
+ 2단계.세부주제를 입력하세요: [   ]			-- 초기 비활성화        ==> 활성화
+ 	완료여부[		]
+ 	
+ document.form이름.element이름.value			
+  -->
+  <form name="form01">
+  	<table align="center">
+  		<tr><th colspan="2">로그인</th></tr>
+  		<tr><th>ID</th><th class="c"><input type="text" name="inId" value="ID를 입력하세요" onclick="javascript:login()"></th></tr>
+  		<tr><th>Password</th><th class="c"><input type="password" name="inPass"></th></tr>
+  		<tr><th colspan="2"><input type="button" value="로그인 하기" onclick="javascript:login()"></th></tr>
+  	</table>
+  	<table align="center" border>
+  		<tr><th>Status</th><th colspan="3"><input type="text" name="status" value="로그인 전" disabled></th></tr>
+  		<tr><th>1단계</th><th>주제를 입력하세요.</th><th><input class="a" type="text" name="mainTopic" disabled></th>
+  		<th><input type="button" value="입력" onclick="javascript:topic01()"></th></tr>
+  		<tr><th>2단계</th><th>세부주제를 입력하세요.</th><th><input class="b" type="text" name="subTopic" disabled></th>
+  		<th><input type="button" value="입력" onclick="javascript:topic02()"></th></tr></tr>
+  	</table>
+  </form>
+</html>

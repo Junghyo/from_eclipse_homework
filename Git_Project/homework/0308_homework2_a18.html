@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function call(){
+		var titleValue = document.form01.title.value;
+		var priceValue = parseInt(document.form01.price.value);
+		var peopleValue = parseInt(document.form01.people.value); 
+		var takeValue = parseInt(document.form01.take.value); 
+		var totalValue = priceValue*peopleValue;
+		var titleValue = document.form01.title.value;
+		var show="제목: "+titleValue+"\n"+"받은 금액: "+takeValue+"원\n";
+			show+="총금액: "+priceValue+"원 x "+peopleValue+"명 = "+totalValue+"원\n";
+			show+="거스름돈: "+(takeValue-totalValue)+"원";
+		document.form01.receipt.value=show;
+		if( isNaN(priceValue) || isNaN(takeValue) ){
+			document.form01.receipt.value="";
+			alert("금액을 숫자로 입력하십시오");
+		}else if( isNaN(peopleValue) ){
+			document.form01.receipt.value="";
+			alert("관람인원수를 숫자로 입력하십시오");
+		}else if( takeValue < totalValue){
+			document.form01.receipt.value="";
+			alert("받은 금액이 총 영화표가격보다 "+(totalValue-takeValue)+"원 모자랍니다.");
+		}
+	}
+	
+	
+</script>
+</head>
+<body>
+<!-- 
+ 과제(homework)
+ 	영화관에 가서...
+ 	제  목: [ ]
+ 	관람료: [ ]
+ 	인  원: [ ]
+           [계산]
+    영수증--textarea
+    제목: @@@
+    계산: @@@ * @@@ = @@@         
+ form 하위에 있으면, documet.form이름.introMyself.value="영수증" 	
+	<textarea name="introMyslef" rows="10" cols="50">
+ -->	
+ <center>
+ <form name="form01">
+ 	<table border width="500" height="500">
+ 	<caption><b> 영화관에 가서...</b></caption>
+ 	<tr><th>영화제목</th><th><input type="text" name="title"/></th></tr>
+ 	<tr><th>관람료</th><th><input type="text" name="price"/></th></tr>
+ 	<tr><th>관람인원</th><th><input type="text" name="people"/></th></tr>
+ 	<tr><th>받은 금액</th><th><input type="text" name="take"/></th></tr>
+ 	<tr><th colspan="3"><input height="50" width="50" type="button" value="계산결과" onclick="javascript:call()"/></th></tr>
+ 	</table>
+ 	<h1><b>영수증</b></h1>
+ 	<textarea name="receipt">
+ 	
+ 	
+ 	
+ 	
+ 	</textarea>
+ 	
+ </form>
+ </center>
+</body>
+</html>
