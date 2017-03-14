@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+</script>
+<style type="text/css">
+	tr:nth-child(2n){font-weight:bolder; color:yellow; background:skyblue;}
+	tr:nth-child(2n+1){font-weight:100; color:blue; background:grey;}
+	tr:hover{background:red; color:white;}
+	.a{text-align:center;}
+	.b{text-align:left;}
+	.c{text-align:right;}
+	a{text-decoration:none;}
+	a::after{content:'-' attr(href)}
+	a:link{color:green;}
+	a:visited{color:rgb(230,170,2);}
+</style>
+
+</head>
+<body>
+<!-- 
+ 확인예제(homework)
+ 아래와 같은 화면을 list형태로 구현하세요.
+ 	사원 정보 list(테이블 list) : 데이터 홀/짝 배경색상 처리, 마우스커서시 -- 글자 굵기, 크기, 배경색 변경
+ 사원번호		사원명	  연봉			주업무홈피(link)
+ 7709		홍길동	  3,000만원		구글-http://www.google.com						
+ 7710		김길동	  4,000만원		네이버-http://www.naver.com					
+ 7711		신길동	  5,000만원		다음-http://www.daum.net						
+ 중앙		왼쪽		  오른쪽			왼쪽 line 없이 처리					
+
+-->	
+<table border height="800" width="800">
+<caption>사원 정보 list</caption>
+	<tr><th>사원번호</th><th>사원명</th><th>연봉</th><th>주업무홈피(link)</th></tr>
+	<tr><th class="a">7709</th><th class="b">전지현</th><th class="c">3,000만원</th><th class="b"><a href="http://www.google.com">구글</a></th></tr>
+	<tr><th class="a">7710</th><th class="b">김태희</th><th class="c">4,000만원</th><th class="b"><a href="http://www.naver.com">네이버</a></th></tr>
+	<tr><th class="a">7711</th><th class="b">송혜교</th><th class="c">5,000만원</th><th class="b"><a href="http://www.daum.net">다음</a></th></tr>
+</table>
+</body>
+</html>

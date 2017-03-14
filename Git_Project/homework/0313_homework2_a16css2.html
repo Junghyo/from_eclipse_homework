@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function call1(){        										// 팀확정 A팀 클릭 설정 시작
+		var move1Value = document.getElementById("text01").value;  // A팀 입력(input) 변수 설정
+		var team1Value = document.getElementsByTagName("div")[0];	// 게임테이블 A팀 이름 설정	
+		team1Value.innerHTML=move1Value;							// A팀 input값이 클릭시 게임테이블에 입력되도록 설정
+		var color01Value = document.getElementById("color01").value;	// A팀 로고(select) 변수값 설정
+		if(color01Value=="두산") team1Value.style.backgroundImage="url('img01.jpg')"; // A팀 팀선택별 로고 설정후 클릭시 게임테이블에 출력되도록 설정
+		if(color01Value=="엘지") team1Value.style.backgroundImage="url('img04.jpg')"; 
+		if(color01Value=="넥센") team1Value.style.backgroundImage="url('img03.jpg')";
+	}																						
+	function call2(){												// 팀확정 B팀 클릭 설정 시작
+		var text2Value = document.getElementById("text02").value;	 // B팀 입력(input) 변수 설정
+		var team2Value = document.getElementsByTagName("div")[1];	// 게임테이블 B팀 이름 설정
+		team2Value.innerHTML=text2Value;							 // B팀 input값이 클릭시 게임테이블에 입력되도록 설정
+		var color02Value = document.getElementById("color02").value;		 // B팀 로고(select) 변수값 설정
+		if(color02Value=="삼성") team2Value.style.backgroundImage="url('img09.jpg')";   // B팀 팀선택별 로고 설정후 클릭시 게임테이블에 출력되도록 설정
+		if(color02Value=="SK") team2Value.style.backgroundImage="url('img06.jpg')"; 
+		if(color02Value=="롯데") team2Value.style.backgroundImage="url('img08.jpg')"; 
+	}
+/*
+ input value에 class 설정 또는 <div>에 class 또는 id설정시 input값에 값을 입력하면 div출력란에 undefined로 나옴 어째서? 물어봐야함
+ */
+ 	var team01Pos=20;		//A,B팀 초기 left값 지정 
+ 	var team02Pos=20;
+	function move(obj){		//팀이동 클릭 함수 설정 시작. 클릭시 1칸씩 이동하게
+		var team=obj.name;	// 이동 버튼값 변수 설정
+		var team1Value = document.getElementsByTagName("div")[0];	//게임테이블에 표시된 팀 변수 설정
+		var team2Value = document.getElementsByTagName("div")[1];
+		if(team=="teamA"){                               			//A팀 버튼 클릭하면 한칸씩 이동하게 하고 최대 5칸(leftPos=419)가면 승리표시
+			if((team01Pos+=80)>=420){
+				team01Pos=419;
+				alert(team1Value.innerHTML+" 승리!");
+			}
+			team1Value.style.left=team01Pos+"px";
+		}else if(team=="teamB"){									//B팀 버튼 클릭하면 한칸씩 이동하게 하고 최대 5칸(leftPos=419)가면 승리표시
+			if((team02Pos+=80)>=420){
+				team02Pos=420;
+				alert(team2Value.innerHTML+" 승리!");
+			}
+			team2Value.style.left=team02Pos+"px";
+		}
+	}
+</script>
+<style type="text/css">
+	table, td, th { 
+		border: 1px solid black;
+		border-collapse: collapse; 
+		width: 490px;
+	}
+	td, th {
+	height: 60px;
+	width: 60px;
+	text-align: center;
+	}
+	div{background-size:60px; background-repeat:no-repeat;}
+	#team01{top:315px; left:20px; position:absolute; width:80px; height:60px; z-index:10px;}
+	#team02{top:375px; left:20px; position:absolute; width:80px; height:60px; z-index:10px;}
+	#a{background:black; color:white;}
+	input[type=text]{width:90px;}
+</style>
+
+</head>
+<body>
+<!-- 
+	과제(homework)
+	팀명 		색상			이동
+    text		select		클릭(button)
+    
+         1		2		3		4		5
+  A팀                                                         --- 위에서 팀명하고 색깔 정하면 팀명하고 색깔 매치 (div)
+  B팀	
+
+-->	
+	<table>
+		<tr id="a"><th>팀명</th><th>색상</th><th>팀확정</th><th>이동</th></tr>             	<!-- 테이블 1단(타이틀) 끝 -->
+		<tr><th><input type="text" id="text01"></th>
+		<th><select id="color01">
+		<option>두산</option>
+		<option>엘지</option>
+		<option>넥센</option>
+		</select></th>
+		<th><input type="button" value="클릭" onclick="javascript:call1()"></th>
+		<th><input type="button" value="클릭" name="teamA" onclick="javascript:move(this)"></th></tr>                         	<!-- 테이블 2단(1팀) 끝 -->
+		<tr><th><input type="text" id="text02"></th>
+		<th><select id="color02">
+		<option>삼성</option>
+		<option>SK</option>
+		<option>롯데</option>
+		</select></th>
+		<th><input type="button" value="클릭" onclick="javascript:call2()"></th>
+		<th><input type="button" value="클릭" name="teamB" onclick="javascript:move(this)"></tr>									<!-- 테이블 3단(2팀) 끝 -->
+	</table>
+	<br><br>
+	<table>
+	<tr id="a"><th>0</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th></tr>
+	<tr><th><div id="team01"></div></th><th></th><th></th><th></th><th></th><th></th></tr>
+	<tr><th><div id="team02"></div></th><th></th><th></th><th></th><th></th><th></th></tr>
+	</table>
+</body>
+</html>
