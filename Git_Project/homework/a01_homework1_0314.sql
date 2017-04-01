@@ -8,7 +8,10 @@
  */
  
  /*
-  this is called webBranch, I would like to say.
+ 신기한건.. 제가 마스터가 아닌대도 서로 permit을 줘서 그런지 
+ pull request가 마음대로 되요..
+ 그리고 한글이 안되니깐 그게 짜증날뿐이죠..  these texts are copied from notepad.
+ 
  
  */
  
